@@ -1,0 +1,36 @@
+<p>project works!</p>
+
+
+<div class="custom-popup">
+    <div class="popup-content">
+      <div class="popup-header">
+        <h5 class="header">Tasks</h5>
+        <button class="close-button" >close</button>
+      </div>
+      <div class="modal-body">
+        <!-- Display tasks here -->
+        <ng-container *ngIf="tasks && tasks.length > 0; else noTasks">
+          <div class="list-group">
+            <div class="list-group-item" *ngFor="let task of tasks">
+              <div class="task-row">
+                <p class="mb-1">{{ task.taskName }}</p>
+                <div class="task-actions">
+                  <button class="btn btn-warning" (click)="editTask(task)">
+                    Edit
+                  </button>
+                  <button class="btn btn-danger" (click)="deleteTask(task)">
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noTasks>
+    <p>No tasks available.</p>
+  </ng-template>
+  
