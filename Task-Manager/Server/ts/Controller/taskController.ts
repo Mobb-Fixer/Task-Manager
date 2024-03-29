@@ -46,7 +46,7 @@ router.get("/getProjectDetailsByPid/:pid", async (req, res) => {
 
 router.post("/createProject", async (req: any, res: any) => {
   try {
-    console.log(req.body);
+    console.log(String(req.body).replace(/\n|\r/g, ""));
     const { projectName, userIds } = req.body;
 
     const [project]: any = await db
@@ -131,7 +131,7 @@ router.get("/deleteUserPresenseById/:userId", async (req, res) => {
 
 router.post("/createTasks", async (req, res) => {
   try {
-    console.log(req.body);
+    console.log(String(req.body).replace(/\n|\r/g, ""));
     const { taskName, projectId } = req.body;
 
     if (!taskName || !projectId) {
@@ -155,7 +155,7 @@ router.post("/createTasks", async (req, res) => {
 
 router.put("/editTask", async (req, res) => {
   try {
-    console.log(req.body);
+    console.log(String(req.body).replace(/\n|\r/g, ""));
     const { taskId, taskName, projectId } = req.body;
 
     if (!taskId || !taskName || !projectId) {
